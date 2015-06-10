@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'thoughts#dashboard'
 
   post 'thoughts' => 'thoughts#create', as: :thoughts
+
+  get 'tags/:tag' => 'tags#show', as: :tag
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

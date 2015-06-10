@@ -11,7 +11,7 @@ class ThoughtsController < ApplicationController
   end
 
   def create
-    @thought = Thought.new params.require(:thought).permit(:content, :photo)
+    @thought = Thought.new params.require(:thought).permit(:content, :photo, :tag_list)
     if @thought.save
       redirect_to root_path, notice: "Thought Added deeply"
     else

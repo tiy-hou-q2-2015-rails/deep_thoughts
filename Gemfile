@@ -37,10 +37,11 @@ gem 'simple_form', '3.1'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'carrierwave-aws'
+gem 'dotenv-rails'
 gem 'rails_autolink'
 gem 'mini_magick'
 gem 'rails_admin'
-
 gem 'rails_12factor'
 
 

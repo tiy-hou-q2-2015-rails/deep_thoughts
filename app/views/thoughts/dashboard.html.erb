@@ -1,0 +1,33 @@
+<h1>Deep Thoughts</h1>
+
+<%= simple_form_for @thought do |f| %>
+  <%= f.input :content, as: :text %>
+  <%= f.input :photo %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<h3><%= pluralize @thoughts.total_count, "thought" %></h3>
+
+
+
+
+  <% @thoughts.each do |thought| %>
+    <div class="media">
+
+    <div class="media-left">
+      <%= link_to thought.photo.url(:large) do %>
+        <%= image_tag thought.photo.url(:thumb), class: "media-object img-rounded"  %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= auto_link thought.content %>
+      </h4>
+      <p>
+        Posted <%= distance_of_time_in_words_to_now thought.created_at %> ago
+      </p>
+    </div>
+  </div>
+  <% end %>
+
+<%= paginate @thoughts %>
